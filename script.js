@@ -56,12 +56,28 @@ function selectColor() {
 
 // Fill all uncolored cells
 function fillU() {
+    const table = document.getElementById("grid")
+    const cells = table.getElementsByTagName("td")
+    console.log(cells)
+    for (var i = 0; i < cells.length; i++) {
+        if (cells[i].classList.length === 0) {
+            console.log(cells[i].classList.length)
+            cells[i].className = colorSelected;
+        }
+        // cells[i].style.backgroundColor
+    }
 
 }
 
 // Fill all cells
 function fillAll() {
-    alert("Clicked Fill All"); // Replace this line with your code.
+    // const table = document.getElementById("grid")
+    // const cells = table.getElementsByTagName("td")
+    // console.log(cells)
+    // for (var i = 0; i < cells.length; i++) {
+    //     cells[i].className = colorSelected;
+    //     // cells[i].style.backgroundColor
+    // }
 }
 
 // Clear all cells
