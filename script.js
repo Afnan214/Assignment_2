@@ -6,16 +6,23 @@ let colorSelected;
 // Add a row
 function addR() {
     const table = document.getElementById("grid")
-    const newRow = table.insertRow(0);
+    const newRow = table.insertRow(-1);
     for (var i = 0; i < numCols; i++) {
         newRow.insertCell(i);
     }
     numRows += 1;
+
 }
 
 // Add a column
 function addC() {
-    alert("Clicked Add Col"); // Replace this line with your code.
+    const table = document.getElementById("grid")
+
+    const rows = table.getElementsByTagName("tr")
+    for (var i = 0; i < rows.length; i++) {
+        rows[i].insertCell(-1);
+    }
+    numCols++;
 }
 
 // Remove a row
