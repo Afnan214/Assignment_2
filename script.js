@@ -38,7 +38,14 @@ function removeR() {
 
 // Remove a column
 function removeC() {
-    alert("Clicked Remove Col"); // Replace this line with your code.
+    const table = document.getElementById("grid")
+    if (numRows !== 0) {
+        const rows = table.getElementsByTagName("tr")
+        for (var i = 0; i < rows.length; i++) {
+            rows[i].deleteCell(numCols - 1);
+        }
+        numCols -= 1
+    }
 }
 
 // Set global variable for selected color
@@ -49,7 +56,7 @@ function selectColor() {
 
 // Fill all uncolored cells
 function fillU() {
-    alert("Clicked Fill All Uncolored"); // Replace this line with your code.
+
 }
 
 // Fill all cells
