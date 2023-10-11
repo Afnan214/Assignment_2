@@ -17,17 +17,23 @@ function addR() {
 // Add a column
 function addC() {
     const table = document.getElementById("grid")
-
-    const rows = table.getElementsByTagName("tr")
-    for (var i = 0; i < rows.length; i++) {
-        rows[i].insertCell(-1);
+    if (numRows !== 0) {
+        const rows = table.getElementsByTagName("tr")
+        for (var i = 0; i < rows.length; i++) {
+            rows[i].insertCell(-1);
+        }
+        numCols++;
     }
-    numCols++;
 }
 
 // Remove a row
 function removeR() {
-    alert("Clicked Remove Row"); // Replace this line with your code.
+    //if the number of rows is greater than 0
+    if (numRows >= 0) {
+        const table = document.getElementById("grid")
+        table.deleteRow(numRows - 1)
+        numRows -= 1;
+    }
 }
 
 // Remove a column
