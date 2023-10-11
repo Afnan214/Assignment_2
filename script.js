@@ -82,5 +82,10 @@ function fillAll() {
 
 // Clear all cells
 function clearAll() {
-    alert("Clicked Clear All"); // Replace this line with your code.
+    const table = document.getElementById("grid")
+    const cells = table.getElementsByTagName("td")
+    for (var i = 0; i < cells.length; i++) {
+        cells[i].className = ''
+    }
 }
+
