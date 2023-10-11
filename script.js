@@ -71,13 +71,13 @@ function fillU() {
 
 // Fill all cells
 function fillAll() {
-    // const table = document.getElementById("grid")
-    // const cells = table.getElementsByTagName("td")
-    // console.log(cells)
-    // for (var i = 0; i < cells.length; i++) {
-    //     cells[i].className = colorSelected;
-    //     // cells[i].style.backgroundColor
-    // }
+    const table = document.getElementById("grid")
+    const cells = table.getElementsByTagName("td")
+    console.log(cells)
+    for (var i = 0; i < cells.length; i++) {
+        cells[i].className = colorSelected;
+        // cells[i].style.backgroundColor
+    }
 }
 
 // Clear all cells
