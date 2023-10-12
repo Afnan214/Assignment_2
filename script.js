@@ -1,6 +1,6 @@
 // Declare global variables
-let numRows = 2;
-let numCols = 3;
+let numRows = 2;        //default Row Value
+let numCols = 3;        //default Col Value
 let colorSelected;
 
 // Add a row
@@ -8,7 +8,12 @@ function addR() {
     const table = document.getElementById("grid")
     const newRow = table.insertRow(-1);
     for (var i = 0; i < numCols; i++) {
-        newRow.insertCell(i);
+
+        const cell = newRow.insertCell(i);      // this will create a cell and put it in the row
+        // This will allow new row to change colors when clicked 
+        cell.onclick = function () {
+            colorCell(this)
+        }
     }
     numRows += 1;
 
@@ -20,7 +25,11 @@ function addC() {
     if (numRows !== 0) {
         const rows = table.getElementsByTagName("tr")
         for (var i = 0; i < rows.length; i++) {
-            rows[i].insertCell(-1);
+            const cell = rows[i].insertCell(-1);
+            // This will allow new column to change colors when clicked 
+            cell.onclick = function () {
+                colorCell(this)
+            }
         }
         numCols++;
     }
@@ -38,8 +47,9 @@ function removeR() {
 
 // Remove a column
 function removeC() {
-    const table = document.getElementById("grid")
+
     if (numRows !== 0) {
+        const table = document.getElementById("grid")
         const rows = table.getElementsByTagName("tr")
         for (var i = 0; i < rows.length; i++) {
             rows[i].deleteCell(numCols - 1);
@@ -82,10 +92,17 @@ function fillAll() {
 
 // Clear all cells
 function clearAll() {
-    const table = document.getElementById("grid")
-    const cells = table.getElementsByTagName("td")
+    const table = document.getElementById("grid")//returns table
+    const cells = table.getElementsByTagName("td")//returns cells
     for (var i = 0; i < cells.length; i++) {
         cells[i].className = ''
     }
 }
 
+//cell represents the cell that was clicked.
+function colorCell(cell) {
+    if (colorSelected.value !== '') {
+        cell.className = colorSelected;//change the class for "cell" to selected color class
+    }
+
+}
